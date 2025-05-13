@@ -1,0 +1,10 @@
+To update the portfolio:
+
+git status-- to see the changes
+git add .
+git add index.html
+git rm generic.html elements.html contact.html blog.html
+git commit -m" updated index.html"
+git push origin master
+
+***use power shell**
