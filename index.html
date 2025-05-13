@@ -1,207 +1,772 @@
-<!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>About Me</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipen's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f8fafc;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        }
+        
+        .profile-img {
+            border: 5px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+            border-color: rgba(255,255,255,0.4);
+        }
+        
+        .skill-logo {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-logo:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .typing-text {
+            border-right: 2px solid;
+            animation: blink 0.75s step-end infinite;
+        }
+        
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: #1e40af; }
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #1e40af;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .active:after {
+            width: 100%;
+        }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+        /* Modal styles */
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .modal-content {
+            transition: transform 0.3s ease;
+        }
+        
+        .modal-open {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-closed {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .modal-open .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-closed .modal-content {
+            transform: translateY(-20px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-blue-900">DS Portfolio</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-blue-900 hover:text-blue-700 px-3 py-2 text-sm font-medium active">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-blue-700 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="#skills" class="nav-link text-gray-600 hover:text-blue-700 px-3 py-2 text-sm font-medium">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-600 hover:text-blue-700 px-3 py-2 text-sm font-medium">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-blue-700 px-3 py-2 text-sm font-medium">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-700">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-blue-700">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-blue-700">About</a>
+                <a href="#skills" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-blue-700">Skills</a>
+                <a href="#projects" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-blue-700">Projects</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-blue-700">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white pt-32 pb-20 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-blue-200">Dipen Sherpa</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">
+                    <span class="typing-text">Data Science Enthusiast</span>
+                </h2>
+                <p class="text-lg mb-8 text-blue-100">
+                    Driven by curiosity and powered by data, I'm committed to turning complex datasets into clear, actionable strategies-continuously learning and innovating to deliver real-world impact in the field of data science.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-white text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-blue-100 transition duration-300">
+                        Get In Touch
+                    </a>
+                    <a href="#projects" class="border-2 border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition duration-300">
+                        View Projects
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <img src="gitdipen.jpg"
+                          alt="Profile"
+                          class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover profile-img">
+                    <div class="absolute -bottom-4 -right-4 bg-blue-100 text-blue-900 px-4 py-2 rounded-lg shadow-lg">
+                        <span class="font-bold">Life </span>is  Beautiful
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Dipen's Portfolio</strong></a>
-									
-								</header>
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">About Me</h2>
+                        
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="career.png"
+                          alt="Data Science"
+                          class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-800">From Banking to Data Science</h3>
+                    <p class="text-gray-700 mb-4">
+                        My name is Dipen Sherpa, and I'm from Kathmandu, Nepal. As a tech enthusiast with a futuristic mindset, 
+                        I am diving into coding, even though my background is in management.
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        With seven years of experience in banking, I've decided to shift gears and pursue a career as a developer. 
+                        Currently, I am learning Python programming and exploring data science.
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        I firmly believe that anything is possible in life, and it's never too late to chase our dream job.
+                    </p>
+                                        
+                    <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                        <h4 class="font-semibold text-blue-800 mb-2">Education & Certifications</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-graduation-cap text-blue-600 mt-1 mr-3"></i>
+                                <span>Completed 110 credit hours in Data Science & Machine Learning at Deerwalk Institute</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-certificate text-blue-600 mt-1 mr-3"></i>
+                                <span>Currently learning Data Science in Mindrisers Institute of Technology</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Hi, I’m Dipen Sherpa<br />
-											& I am a Data Science Student</h1>
-											
-										</header>
-										<p>
-											My name is Dipen Sherpa, and I’m from Kathmandu, Nepal. As a tech enthusiast with a futuristic mindset, I am diving into coding, even though my background is in management.<br> With seven years of experience in banking, I’ve decided to shift gears and pursue a career as a developer. 
-											Currently, I am learning Python programming and exploring data science.
-											<br>I firmly believe that anything is possible in life, and it’s never too late to chase our dream job.
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Technical Skills</h2>
+                        
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <!-- Python -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center skill-logo">
+                    <div class="flex justify-center mb-3">
+                        <img src="python.jpg" alt="Python Logo" class="h-16 mx-auto" />
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Python</h3>
+                    <p class="text-gray-600 text-sm">Pandas, NumPy, BeautifulSoup</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-3">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                                
+                <!-- SQL -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center skill-logo">
+                    <div class="flex justify-center mb-3">
+                        <img src="mysql.png" alt="Python Logo" class="h-16 mx-auto" />
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">SQL</h3>
+                    <p class="text-gray-600 text-sm">Database management</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-3">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 75%"></div>
+                    </div>
+                </div>
+                                
+                <!-- Excel -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center skill-logo">
+                    <div class="flex justify-center mb-3">
+                        <img src="excel.png" alt="Python Logo" class="h-16 mx-auto" />
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Excel</h3>
+                    <p class="text-gray-600 text-sm">Data cleaning & analysis</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-3">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                                
+                <!-- Git -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center skill-logo">
+                    <div class="flex justify-center mb-3">
+                        <img src="git.png" alt="Python Logo" class="h-16 mx-auto" />
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Git & GitHub</h3>
+                    <p class="text-gray-600 text-sm">Version control</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-3">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+                        
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-800">Data Science Journey</h3>
+                        <p class="text-gray-700 mb-6">
+                            My transition from banking to data science has been challenging but incredibly rewarding. 
+                            I've developed projects ranging from web scraping to machine learning models.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-check text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Data Analysis</h4>
+                                    <p class="text-gray-600">Extracting insights from complex datasets</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-check text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Machine Learning</h4>
+                                    <p class="text-gray-600">Building predictive models</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-check text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Deep Learning</h4>
+                                    <p class="text-gray-600">Unlocking insights through neural networks</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 bg-blue-50 p-8 flex items-center">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-blue-800">Tools & Technologies</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm">Pandas</span>
+                                <span class="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm">NumPy</span>
+                                <span class="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm">NLP</span>
+                                <span class="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm">Matplotlib</span>
+                                <span class="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm">Seaborn</span>
+                                <span class="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm">Scikit-learn</span>
+                                <span class="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm">BeautifulSoup</span>
+                                <span class="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm">MySQL</span>
+                                <span class="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm">Deep Learning</span>
+                                <span class="px-4 py-2 bg-white rounded-full text-sm font-medium shadow-sm">Machine Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Featured Projects</h2>
+                        
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                          alt="Web Scraping"
+                          class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-blue-800">Hacker News Scraper</h3>
+                        <p class="text-gray-600 mb-4">
+                            Scrapes news titles and links from Hacker News using BeautifulSoup and Pandas.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">BeautifulSoup</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Pandas</span>
+                        </div>
+                        <a href="https://github.com/itsmedipen/webscrapping_projects/blob/main/Hackernews_scrap.ipynb"
+                            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                          alt="Guessing Game"
+                          class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-blue-800">Number Guessing Game</h3>
+                        <p class="text-gray-600 mb-4">
+                            A fun game where players guess a random number between 1-100 with three attempts.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Random Module</span>
+                        </div>
+                        <a href="https://github.com/itsmedipen/guessing_game"
+                            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                          alt="Movie Recommender"
+                          class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-blue-800">Movie Recommendation System</h3>
+                        <p class="text-gray-600 mb-4">
+                            Recommends top 5 similar movies based on user selection using collaborative filtering.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Pandas</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Scikit-learn</span>
+                        </div>
+                        <a href="https://movies-recommender-dipensherpa-33851f936b30.herokuapp.com/"
+                            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                        
+            <div class="text-center mt-12">
+                <button id="view-all-projects" class="inline-flex items-center px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-600 hover:text-white transition duration-300">
+                    View All Projects <i class="fas fa-chevron-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
 
+    <!-- Projects Modal -->
+    <div id="projects-modal" class="modal modal-closed fixed inset-0 z-50 overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay -->
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
 
+            <!-- Modal content -->
+            <div class="modal-content inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-2xl leading-6 font-bold text-blue-900">All Projects</h3>
+                                <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6 mt-4">
+                                <!-- Featured Projects (same as above) -->
+                                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                          alt="Web Scraping"
+                                          class="w-full h-48 object-cover">
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-semibold mb-2 text-blue-800">Hacker News Scraper</h3>
+                                        <p class="text-gray-600 mb-4">
+                                            Scrapes news titles and links from Hacker News using BeautifulSoup and Pandas.
+                                        </p>
+                                        <div class="flex flex-wrap gap-2 mb-4">
+                                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Python</span>
+                                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">BeautifulSoup</span>
+                                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Pandas</span>
+                                        </div>
+                                        <a href="https://github.com/itsmedipen/webscrapping_projects/blob/main/Hackernews_scrap.ipynb"
+                                            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                          alt="Guessing Game"
+                                          class="w-full h-48 object-cover">
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-semibold mb-2 text-blue-800">Number Guessing Game</h3>
+                                        <p class="text-gray-600 mb-4">
+                                            A fun game where players guess a random number between 1-100 with three attempts.
+                                        </p>
+                                        <div class="flex flex-wrap gap-2 mb-4">
+                                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Python</span>
+                                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Random Module</span>
+                                        </div>
+                                        <a href="https://github.com/itsmedipen/guessing_game"
+                                            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                          alt="Movie Recommender"
+                                          class="w-full h-48 object-cover">
+                                    <div class="p-6">
+                                        <h3 class="text-xl font-semibold mb-2 text-blue-800">Movie Recommendation System</h3>
+                                        <p class="text-gray-600 mb-4">
+                                            Recommends top 5 similar movies based on user selection using collaborative filtering.
+                                        </p>
+                                        <div class="flex flex-wrap gap-2 mb-4">
+                                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Python</span>
+                                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Pandas</span>
+                                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Scikit-learn</span>
+                                        </div>
+                                        <a href="https://movies-recommender-dipensherpa-33851f936b30.herokuapp.com/"
+                                            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Additional project slots (you can add more here) -->
+                                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 border-dashed flex items-center justify-center min-h-[300px]">
+                                    <div class="text-center p-6">
+                                        <i class="fas fa-plus-circle text-4xl text-gray-400 mb-4"></i>
+                                        <p class="text-gray-500">More projects coming soon</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 border-dashed flex items-center justify-center min-h-[300px]">
+                                    <div class="text-center p-6">
+                                        <i class="fas fa-plus-circle text-4xl text-gray-400 mb-4"></i>
+                                        <p class="text-gray-500">More projects coming soon</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button id="close-modal-bottom" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-900">Get In Touch</h2>
+                        
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <h3 class="text-2xl font-semibold mb-6 text-blue-800">Let's Connect</h3>
+                        <p class="text-gray-600 mb-8">
+                            I'm always open to discussing data science projects, collaborations, or opportunities. 
+                            Feel free to reach out through any of the channels below.
+                        </p>
+                                            
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Email</h4>
+                                    <a href="mailto:sherpadipen71@gmail.com" class="text-blue-600 hover:underline">sherpadipen71@gmail.com</a>
+                                </div>
+                            </div>
+                                                    
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fab fa-linkedin text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/dipen-sherpa-524a8a309/?originalSubdomain=np"
+                                        class="text-blue-600 hover:underline"
+                                        target="_blank">linkedin.com/in/dipen-sherpa</a>
+                                </div>
+                            </div>
+                                                    
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fab fa-github text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">GitHub</h4>
+                                    <a href="https://github.com/itsmedipen"
+                                        class="text-blue-600 hover:underline"
+                                        target="_blank">github.com/itsmedipen</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        
+                    <div class="md:w-1/2 bg-blue-50 p-8 md:p-12">
+                        <h3 class="text-2xl font-semibold mb-6 text-blue-800">Send Me a Message</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" name="name"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                                                    
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" name="email"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                                                    
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea id="message" name="message" rows="4"
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                            </div>
+                                                    
+                            <button type="submit"
+                                    class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="text-xl font-bold">Dipen Sherpa</span>
+                    <p class="text-blue-200 mt-1">Data Science Enthusiast</p>
+                </div>
+                                
+                <div class="flex space-x-6">
+                    <a href="mailto:sherpadipen71@gmail.com" class="text-blue-200 hover:text-white">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/dipen-sherpa-524a8a309/?originalSubdomain=np"
+                        class="text-blue-200 hover:text-white"
+                        target="_blank">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="https://github.com/itsmedipen"
+                        class="text-blue-200 hover:text-white"
+                        target="_blank">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+                        
+            <div class="border-t border-blue-800 mt-6 pt-6 text-center text-blue-300 text-sm">
+                <p>&copy; 2025 Dipen Sherpa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
 
-											</p>
-										
+        // Typing animation
+        const phrases = ["Data Science Enthusiast", "Deep Learning Learner", "Data Analyst", "Machine Learning Explorer"];
+        let currentPhrase = 0;
+        let currentLetter = 0;
+        let typingText = document.querySelector('.typing-text');
+        let isDeleting = false;
+        let typingSpeed = 150;
 
-										
-	
-									</div>
-									<span class="image object">
-										<img src="gitdipen.jpg" alt="" />
-									</span>
-								</section>
+        function type() {
+            const fullText = phrases[currentPhrase];
+                        
+            if (isDeleting) {
+                typingText.textContent = fullText.substring(0, currentLetter - 1);
+                currentLetter--;
+                typingSpeed = 50;
+            } else {
+                typingText.textContent = fullText.substring(0, currentLetter + 1);
+                currentLetter++;
+                typingSpeed = 150;
+            }
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Key skills</h2>
-									</header>
-									<div class="features">
-										<article>
-											<span class="icon fa-gem"></span>
-											<div class="content">
-												<h3>Python</h3>
-												<p>
-													I use Python to analyze data and create websites as needed.<br> I work with libraries like Pandas, NumPy, and BeautifulSoup
-												</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-paper-plane"></span>
-											<div class="content">
-												<h3>Excel</h3>
-												<p>I use Excel to clean and organize data for analysis.</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-rocket"></span>
-											<div class="content">
-												<h3>SQL</h3>
-												<p>
-													I use my skills in database connection and manipulation to analyze and manage data.
+            if (!isDeleting && typingText.textContent === fullText) {
+                isDeleting = true;
+                typingSpeed = 1500; // Pause at end of typing
+            } else if (isDeleting && typingText.textContent === '') {
+                isDeleting = false;
+                currentPhrase = (currentPhrase + 1) % phrases.length;
+                typingSpeed = 500; // Pause before starting next phrase
+            }
 
+            setTimeout(type, typingSpeed);
+        }
 
+        // Start the typing effect
+        setTimeout(type, 1000);
 
-												</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-signal"></span>
-											<div class="content">
-												<h3>Git and Github</h3>
-												<p>I have some basic knowlege about git and git hub.
-			
-												
-											
-												</p>
-											</div> 
-										</article>
-									</div>
-								</section>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    link.classList.add('text-gray-600');
+                    link.classList.remove('text-blue-900');
+                });
+                                
+                this.classList.add('active');
+                this.classList.remove('text-gray-600');
+                this.classList.add('text-blue-900');
+            });
+        });
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Courses and Certificates</h2>
-									</header>
-									<div class="posts">
-										<article>
-											<a href="#" class="image"><img src="deerwalk.jpg" alt="" /></a>
-											<h3>Deerwalk Institute</h3>
-											<p>I completed a two-month data science and machine learning program, totaling 110 credit hours. During this course, 
-												I gained foundational knowledge of Python and worked with libraries such as Pandas and NumPy.
-												 Additionally, I was introduced to key concepts in machine learning.
-												
-											</p>
-										
-										</article>
-										<article>
-											<a href="#" class="image"><img src="python.jpg" alt="" /></a>
-											<h3>Technology Channel</h3>
-											<p>
-												I am currently learning Python programming, progressing from the basics to object-oriented programming (OOP). 
-												Along the way, I am developing projects such as a Password Generator, Number Guessing Game, and QR Code Generator.
-											</p>
-											
-										</article>
-										<!-- <article>
-											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-											<h3>Tempus ullamcorper</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-											<h3>Sed etiam facilis</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3>Feugiat lorem aenean</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-											<h3>Amet varius aliquam</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-									</div>
-								</section>
+        // Highlight active section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+                        
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+                        
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                link.classList.add('text-gray-600');
+                link.classList.remove('text-blue-900');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                    link.classList.remove('text-gray-600');
+                    link.classList.add('text-blue-900');
+                }
+            });
+        });
 
-						</div>
-					</div> -->
+        // Projects Modal functionality
+        const modal = document.getElementById('projects-modal');
+        const viewAllBtn = document.getElementById('view-all-projects');
+        const closeModalBtn = document.getElementById('close-modal');
+        const closeModalBottomBtn = document.getElementById('close-modal-bottom');
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+        viewAllBtn.addEventListener('click', () => {
+            modal.classList.remove('modal-closed');
+            modal.classList.add('modal-open');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        });
 
-							
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">About Me</a></li>
-										<li><a href="generic.html">Resume</a></li>
-										<li><a href="elements.html">Projects</a></li>
-										<li><a href="Blogs.html">Blogs</a></li>
-										<li><a href="contact.html">Contact Me</a></li>
+        [closeModalBtn, closeModalBottomBtn].forEach(btn => {
+            btn.addEventListener('click', () => {
+                modal.classList.remove('modal-open');
+                modal.classList.add('modal-closed');
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            });
+        });
 
-											
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Dipen Sherpa<a href="mailto:sherpadipen71@gmail.com">Email.</p>
-								</footer>
-
-						</div>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('modal-open');
+                modal.classList.add('modal-closed');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
 </html>
